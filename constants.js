@@ -14,3 +14,11 @@ module.exports= {
 
 
 };
+
+// roles.js
+const roles = {
+  admin: 'admin',
+  user: 'user',
+};
+
+module.exports = roles;

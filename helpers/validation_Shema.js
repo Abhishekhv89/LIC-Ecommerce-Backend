@@ -6,7 +6,7 @@ const Joi = require('joi');
     email: Joi.string().email({ minDomainSegments: 2}).required(),
     password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
     // ConPassword: Joi.ref('password'),
-    address:Joi.string(),
+    address:Joi.string().allow(''),
     phone:Joi.number().required(),
 
 })

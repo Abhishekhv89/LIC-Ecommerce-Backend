@@ -1,4 +1,15 @@
 const mongoose = require('mongoose');
+
+// const SizeSchema = new mongoose.Schema({
+  
+// //   ,
+// //   stock: {
+// //     type: Number,
+// //     required: true,
+// //     default: 0
+// //   }
+// });
+
 const ProductSchema = new mongoose.Schema({
     slno:{
         type:Number,
@@ -16,10 +27,12 @@ const ProductSchema = new mongoose.Schema({
         type:String,
         require:true,
     },
-    size:{
-        type:Number,
-        require:true,
+    sizes: {
+    type: [String],
+     required: true,
+    enum: ['US6','US10.5','US11','US11.5','US7', 'US7.5', 'US8', 'US8.5', 'US9', 'US9.5', 'US10', 'US11.5', 'US12', 'US12.5', 'US13', 'US13.5'] // Adjust sizes as needed
     },
+
     quantity:{
         type:Number,
         require:true,
@@ -32,9 +45,13 @@ const ProductSchema = new mongoose.Schema({
         type:String,
         require:true,
     },
-    image:{
-        type:String,
+    images:{
+        type:[String],
         require:true,
+    },
+    user:{
+        type:mongoose.Schema.ObjectId,
+        ref:"User",
     }
     
 })
